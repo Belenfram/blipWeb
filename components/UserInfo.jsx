@@ -44,6 +44,7 @@ const Paquetes = () => {
           <li key={index} className="mb-4 p-4 border border-black rounded-md bg-slate-500">
             <p>Clasificación: {item.clasificacion}</p>
             <p>Fecha: {item.fecha}</p>
+            <p>Id: {item.id}</p>
           </li>
         ))}
       </ul>

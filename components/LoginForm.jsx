@@ -31,7 +31,7 @@ export default function LoginForm() {
             router.replace("dashboard");
 
         } catch (error) {
-            console.log(error);
+            console.log("Error al iniciar sesión: ", error);
         }
     };
 

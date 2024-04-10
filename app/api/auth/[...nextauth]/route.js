@@ -86,7 +86,7 @@ export const authOptions = {
     session: {
         strategy: "jwt",
     },
-    secret: "TuClaveSecretaAquí", // Define tu clave secreta aquí
+    secret: "proyectoBlipcito2000",
     pages: {
         signIn: "/",
     },
