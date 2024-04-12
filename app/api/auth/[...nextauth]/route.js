@@ -110,7 +110,8 @@ export const authOptions = {
     session: {
         strategy: "jwt",
     },
-    secret: "proyectoBlipcito2000",
+    secret: process.env.NEXTAUTH_SECRET,
+    //secret: "proyectoBlipcito2000",
     pages: {
         signIn: "/",
     },
