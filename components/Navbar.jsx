@@ -102,11 +102,6 @@ export default function Navbar() {
                     Acerca de
                   </Link>
                 </div>
-                <div className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                  <Link href="/contacto">
-                    Multimedia
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
