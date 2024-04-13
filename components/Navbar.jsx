@@ -98,6 +98,11 @@ export default function Navbar() {
                   </Link>
                 </div>
                 <div className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <Link href="/mqtt">
+                    MQTT
+                  </Link>
+                </div>
+                <div className="text-gray-100 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   <Link href="/about">
                     Acerca de
                   </Link>
