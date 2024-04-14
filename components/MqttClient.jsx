@@ -1,5 +1,5 @@
 'use client'
-/*import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import mqtt from 'mqtt';
 import LiquidGauge from 'react-liquid-gauge'; // librería de gráfica de gauge
 
@@ -78,61 +78,6 @@ const MqttClient = () => {
     </div>
 
 
-  );
-};
-
-export default MqttClient;*/
-
-import React, { useEffect, useState } from 'react';
-import mqtt from 'mqtt';
-import Dashboard from './dashboard'; // Importa el componente Dashboard
-
-const MqttClient = () => {
-  const [weight, setWeight] = useState(20); // Inicia el peso en 20
-  const [data, setData] = useState(null);
-  const [weightData, setWeightData] = useState([]);
-
-  useEffect(() => {
-    const client = mqtt.connect('ws://broker.emqx.io:8083/mqtt');
-
-    client.on('connect', function () {
-      console.log('Conectado al broker MQTT');
-      client.subscribe('outTopic', function (err) {
-        if (!err) {
-          console.log('Suscrito al topic');
-        } else {
-          console.error('Error de suscripción:', err);
-        }
-      });
-    });
-
-    client.on('message', (topic, message) => {
-      console.log('Mensaje recibido en el topic ${topic}: ${message.toString()}');
-      try {
-        const parsedData = JSON.parse(message.toString());
-        setData(parsedData);
-        if (parsedData.Peso) {
-          setWeight(parsedData.Peso);
-
-          // Actualiza weightData con los nuevos datos
-          setWeightData((prevData) => [
-            ...prevData,
-            { timestamp: Date.now(), weight: parsedData.Peso },
-          ]);
-        }
-      } catch (error) {
-        console.error("Error al analizar el mensaje JSON:", error);
-      }
-    });
-    return () => {
-      if (client) {
-        client.end();
-      }
-    };
-  }, []);
-
-  return (
-    <Dashboard weight={weight} weightData={weightData} /> // Renderiza el componente Dashboard con el peso y los datos de peso como props
   );
 };
 
