@@ -92,7 +92,8 @@ const MqttClient = () => {
  const [weightData, setWeightData] = useState([]);
 
  useEffect(() => {
-    const client = mqtt.connect('ws://broker.emqx.io:8084/mqtt'); // Asegúrate de que esta URL coincida con la de tu broker MQTT
+    //const client = mqtt.connect('ws://broker.emqx.io:8083/mqtt'); // Asegúrate de que esta URL coincida con la de tu broker MQTT
+    const client = mqtt.connect('wss://broker.emqx.io:8084/mqtt');
 
     client.on('connect', function () {
       console.log('Conectado al broker MQTT');

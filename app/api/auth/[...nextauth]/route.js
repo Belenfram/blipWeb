@@ -1,4 +1,4 @@
-/*import { connectMongoDB } from "@/lib/mongodb";
+import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -45,9 +45,11 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-export {handler as GET, handler as POST};*/
+export {handler as GET, handler as POST};
 
-import { connectMongoDB } from "@/lib/mongodb";
+
+
+/*import { connectMongoDB } from "@/lib/mongodb";
 import User from "@/models/user";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -83,7 +85,26 @@ export const authOptions = {
                 }
               },
 
-            /*async authorize(credentials){
+            
+        }),
+    ],
+    session: {
+        strategy: "jwt",
+    },
+    secret: process.env.NEXTAUTH_SECRET,
+    //secret: "proyectoBlipcito2000",
+    pages: {
+        signIn: "/",
+    },
+};
+
+const handler = NextAuth(authOptions);
+
+export {handler as GET, handler as POST};*/
+
+
+
+/*async authorize(credentials){
                 const {email, password} = credentials;
                 
                 try {
@@ -105,18 +126,3 @@ export const authOptions = {
                     console.log("Error: ", error);
                 }
             },*/
-        }),
-    ],
-    session: {
-        strategy: "jwt",
-    },
-    secret: process.env.NEXTAUTH_SECRET,
-    //secret: "proyectoBlipcito2000",
-    pages: {
-        signIn: "/",
-    },
-};
-
-const handler = NextAuth(authOptions);
-
-export {handler as GET, handler as POST};
