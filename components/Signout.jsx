@@ -20,11 +20,13 @@ export default function UserInfo() {
     </div>;
 }*/
 
+
+
 // LogoutButton.jsx
 'use client';
 import { signOut } from 'next-auth/react';
 
-const LogoutButton = () => {
+/*const LogoutButton = () => {
   const handleLogout = async () => {
     try {
       await signOut();
@@ -37,6 +39,33 @@ const LogoutButton = () => {
   return (
     <button onClick={handleLogout} className="bg-red-500 border-2 border-red-700 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
       Salir
+    </button>
+  );
+};
+
+export default LogoutButton;*/
+
+
+import React from 'react';
+
+const LogoutButton = () => {
+  const handleLogout = async () => {
+    try {
+      await signOut(); // Cierra la sesión con el proveedor de autenticación (NextAuth.js)
+  
+      // Limpia las credenciales del usuario (ejemplo)
+      localStorage.removeItem('userCredentials'); // Ajusta el nombre de la clave según tu implementación
+  
+      // Redirige a la página de inicio de sesión
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
+  return (
+    <button onClick={handleLogout} className="bg-red-500 border-2 border-red-700 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+      Cerrar Sesión
     </button>
   );
 };
